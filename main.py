@@ -31,14 +31,14 @@ def Convert(srcPath, dstPath, bg="#e6e6e6"):
     kernel = np.ones((1, 1), np.uint8)
 
 
-    cap = cv2.VideoCapture("video.mp4")
+    cap = cv2.VideoCapture(srcPath)
     fourcc = cv2.VideoWriter_fourcc(*"avc1")
     fps = int(cap.get(cv2.CAP_PROP_FPS))
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     size = (width, height)
     # print(type(size))
-    writer = cv2.VideoWriter("output.mp4", fourcc, fps, size)
+    writer = cv2.VideoWriter(dstPath, fourcc, fps, size)
 
     while True:
         ok, frame = cap.read()
