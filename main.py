@@ -49,7 +49,7 @@ def Convert(srcPath, dstPath, bg="#e6e6e6"):
             # 腐蚀运算去绿边
             erosion = cv2.erode(mask, kernel)
 
-            pure_gray = create_image(frame.shape[0], frame.shape[1], "e6e6e6")
+            pure_gray = create_image(frame.shape[0], frame.shape[1], bg)
 
             # 获取人物
             person = cv2.bitwise_and(frame, frame, mask=mask)
@@ -64,4 +64,4 @@ def Convert(srcPath, dstPath, bg="#e6e6e6"):
 
 
 if __name__ == "__main__":
-    Convert("video.mp4", "output.mp4")
+    Convert("video.mp4", "output.mp4", "#e6e6e6")
